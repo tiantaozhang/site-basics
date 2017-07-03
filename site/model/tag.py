@@ -12,3 +12,4 @@ class Tag(db.Model):
     id = db.Column(Integer, primary_key=True)
     name = db.Column(String)
     parent = db.Column(Integer)
+    article_id = db.Column(Integer)
