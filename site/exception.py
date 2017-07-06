@@ -1,4 +1,4 @@
-class YMException(Exception):
+class TTException(Exception):
     """
     Api exceptions
     代替 werkzeug.exceptions
@@ -22,38 +22,38 @@ class YMException(Exception):
             self.logging = logging
 
 
-class BadRequest(YMException):
+class BadRequest(TTException):
     """http请求url或者参数错误"""
     code = 400
 
 
-class InternalServerError(YMException):
+class InternalServerError(TTException):
     """http请求内部错误"""
     code = 500
 
 
-class AuthSSORequired(YMException):
+class AuthSSORequired(TTException):
     """sso required"""
     code = 210
     sentry_alarm = False
     logging = False
 
 
-class AuthInvalidAccount(YMException):
+class AuthInvalidAccount(TTException):
     """无效账号"""
     code = 220
     sentry_alarm = False
     logging = False
 
 
-class AuthSignatureError(YMException):
+class AuthSignatureError(TTException):
     """无效签名"""
     code = 240
     sentry_alarm = False
     logging = False
 
 
-class AuthPermissionDeny(YMException):
+class AuthPermissionDeny(TTException):
     """权限错误,无权限访问"""
     code = 240
     sentry_alarm = False
