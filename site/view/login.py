@@ -1,10 +1,9 @@
+from flask import request, jsonify, g, url_for
 
-import requests
-from flask import request, jsonify, session, g, url_for
-from site.view import main
-from site.view.exception import BadRequest, YMException
-from site.model.user import User
 from site import db, auth
+from site.exception import BadRequest, YMException
+from site.model.user import User
+from site.view import main
 
 
 @main.route('/users', methods=['POST'])

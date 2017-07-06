@@ -1,17 +1,16 @@
 # coding=utf-8
-
+#
 from raven.contrib.flask import Sentry
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_httpauth import HTTPBasicAuth
 
-from config.admin_config import config, AWS
-import boto3
+from config.config import *
 
-# login_manager = LoginManager()
-# login_manager.session_protection = 'strong'
-# login_manager_view = 'auth.login'
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager_view = 'auth.login'
 
 db = SQLAlchemy()
 auth = HTTPBasicAuth()
