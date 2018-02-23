@@ -7,8 +7,8 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from flask import jsonify
 from flask_script import Manager, Shell, Server
-from site import create_app
-from site.exception import TTException
+from apps import create_app
+from apps.exception import TTException
 
 FLASK_CONFIG = os.getenv("FLASK_CONFIG", "default")
 app = create_app(FLASK_CONFIG)
@@ -34,7 +34,7 @@ def handle_http_exception(error):
     if error.logging:
         app.logger.error(error.message, exc_info=sys.exc_info)
     if error.sentry_alarm:
-        from site import sentry_client
+        from apps import sentry_client
         sentry_client.captureException()
     return jsonify({'c': error.code, 'm': error.message})
 
@@ -46,7 +46,7 @@ def handle_all_exception(error):
     :return: response
     """
     app.logger.error(str(error.args[0]), exc_info=sys.exc_info)
-    from site import sentry_client
+    from apps import sentry_client
     sentry_client.captureException()
     return jsonify({'c': 500, 'm': str(error.args[0])})
 

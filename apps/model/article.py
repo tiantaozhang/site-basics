@@ -1,6 +1,6 @@
 
 from sqlalchemy import Integer, String
-from site import db
+from apps import db
 
 
 class Article(db.Model):

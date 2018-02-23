@@ -3,7 +3,7 @@ from flask import current_app
 from sqlalchemy import Integer, String
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer,
                           BadSignature, SignatureExpired)
-from site import db
+from apps import db
 from passlib.apps import custom_app_context as pwd_context
 
 
