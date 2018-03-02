@@ -1,5 +1,5 @@
-import sys
-sys.path.append('../')
+# import sys
+# sys.path.append('../')
 
 from celery import Celery
 from config.celery_setting import BROKER_URL

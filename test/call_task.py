@@ -1,5 +1,5 @@
-import sys
-sys.path.append('../')
+# import sys
+# sys.path.append('../')
 
 from apps.site_task import add
 
